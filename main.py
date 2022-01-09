@@ -17,3 +17,11 @@ matrices = []
 for graph in graphs:
     matrices.append(dataloader.readGraph(path + graph))
 matrices.append(dataloader.readIBM(path + ibm))
+
+# HITS
+a = []
+h = []
+for matrix in matrices:
+    result = HITS.run(matrix)
+    a.append(result[0])
+    h.append(result[1])
