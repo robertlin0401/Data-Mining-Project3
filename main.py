@@ -10,8 +10,11 @@ graphs = [
     "graph_5.txt",
     "graph_6.txt"
 ]
+ibm = "ibm-5000.txt"
 
-# read graph data
+# Read data.
 graph_matrices = []
 for graph in graphs:
     graph_matrices.append(dataloader.readGraph(path + graph))
+
+ibm_matrix = dataloader.readIBM(path + ibm)
