@@ -1,5 +1,5 @@
 import numpy as np
-from src import dataloader, HITS
+from src import dataloader, HITS, PageRank
 
 # constant
 path = {
@@ -37,3 +37,14 @@ for i in range(7):
     else:
         np.savetxt(path["output"] + ibm.split('.')[0] + "_HITS_authority.txt", a[i], fmt="%.8f", newline=" ")
         np.savetxt(path["output"] + ibm.split('.')[0] + "_HITS_hub.txt", h[i], fmt="%.8f", newline=" ")
+
+# PageRank
+r = []
+for matrix in matrices:
+    r.append(PageRank.run(matrix))
+
+for i in range(7):
+    if i != 6:
+        np.savetxt(path["output"] + graphs[i].split('.')[0] + "_PageRank.txt", r[i], fmt="%.8f", newline=" ")
+    else:
+        np.savetxt(path["output"] + ibm.split('.')[0] + "_PageRank.txt", r[i], fmt="%.8f", newline=" ")
