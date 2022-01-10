@@ -26,7 +26,7 @@ matrices.append(dataloader.readIBM(path["input"] + ibm))
 a = []
 h = []
 for matrix in matrices:
-    result = HITS.run(matrix)
+    result = HITS.run(np.array(matrix))
     a.append(result[0])
     h.append(result[1])
 
@@ -41,7 +41,7 @@ for i in range(7):
 # PageRank
 r = []
 for matrix in matrices:
-    r.append(PageRank.run(matrix))
+    r.append(PageRank.run(np.array(matrix)))
 
 for i in range(7):
     if i != 6:
@@ -52,7 +52,7 @@ for i in range(7):
 # SimRank
 s = []
 for matrix in matrices:
-    s.append(SimRank.run(matrix))
+    s.append(SimRank.run(np.array(matrix)))
 
 for i in range(7):
     if i != 6:
